@@ -3,14 +3,16 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         
-        numeros_unicos = []
+        numeros_unicos = {}
 
         for n in nums:
             if n not in numeros_unicos:
-                numeros_unicos.append(n)
+                numeros_unicos[n] = 1
             else:
-                numeros_unicos.remove(n)
+                numeros_unicos[n] += 1
 
-        return numeros_unicos.pop()
+        for num, contagem in numeros_unicos.items():
+            if contagem == 1:
+                return num
 
-    #O(n²)
+    #O(n)
