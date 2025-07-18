@@ -3,16 +3,9 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         
-        numeros_unicos = {}
-
+        resultado = 0
         for n in nums:
-            if n not in numeros_unicos:
-                numeros_unicos[n] = 1
-            else:
-                numeros_unicos[n] += 1
+            resultado ^= n
+        return resultado
 
-        for num, contagem in numeros_unicos.items():
-            if contagem == 1:
-                return num
-
-    #O(n)
+    #complex:  O(n)  |  time: O(1)
