@@ -6,9 +6,6 @@ class Solution:
         unicos = set([])
 
         for n in nums:
-            if n not in unicos:
-                unicos.add(n)
-            else:
-                unicos.remove(n)
+            unicos.remove(n) if n in unicos else unicos.add(n) 
                 
         return unicos.pop()
