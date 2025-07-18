@@ -3,9 +3,14 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         
-        unicos = set([])
+        numeros_unicos = []
 
         for n in nums:
-            unicos.remove(n) if n in unicos else unicos.add(n) 
-                
+            if n not in unicos:
+                unicos.append(n)
+            else:
+                unicos.remove(n)
+
         return unicos.pop()
+
+    #O(n²)
