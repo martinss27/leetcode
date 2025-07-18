@@ -6,11 +6,11 @@ class Solution:
         numeros_unicos = []
 
         for n in nums:
-            if n not in unicos:
-                unicos.append(n)
+            if n not in numeros_unicos:
+                numeros_unicos.append(n)
             else:
-                unicos.remove(n)
+                numeros_unicos.remove(n)
 
-        return unicos.pop()
+        return numeros_unicos.pop()
 
     #O(n²)
