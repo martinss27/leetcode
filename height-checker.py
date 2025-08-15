@@ -4,10 +4,9 @@ class Solution:
     def heightChecker(self, heights: List[int]) -> int:
 
         expected = sorted(heights)
-        result = 0
+        
+        mismatches = sum(height != exp_height 
+                        for height, exp_height 
+                        in zip(heights, expected))
 
-        for i in range(len(heights)):
-            if heights[i] != expected[i]:
-                result += 1
-            
-        return result
+        return mismatches
