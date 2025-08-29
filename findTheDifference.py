@@ -3,11 +3,20 @@
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
 
-        s_list = list(s)
-        t_list = list(t)
+        s_counts = {}
 
-        for l in s_list:
-            if l in t_list:
-                t_list.remove(l)
+        for char in s:
+            if char not in s_counts:
+                s_counts[char] = 1
+            else:
+                s_counts[char] += 1
 
-        return t_list.pop()
+        for char in t:
+            if char not in s_counts or s_counts[char ] == 0:
+                return char
+
+            else:
+                s_counts[char] -= 1
+
+        
+        return s_counts
