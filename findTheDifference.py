@@ -17,6 +17,3 @@ class Solution:
 
             else:
                 s_counts[char] -= 1
-
-        
-        return s_counts
