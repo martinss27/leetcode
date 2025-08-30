@@ -1,19 +1,12 @@
 # https://leetcode.com/problems/find-the-difference/
+from collections import Counter
 
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
 
-        s_counts = {}
+        s_counts = Counter(s)
+        t_counts = Counter(t)
 
-        for char in s:
-            if char not in s_counts:
-                s_counts[char] = 1
-            else:
-                s_counts[char] += 1
+        result = (t_counts - s_counts)
 
-        for char in t:
-            if char not in s_counts or s_counts[char ] == 0:
-                return char
-
-            else:
-                s_counts[char] -= 1
+        return list(result.keys())[0]
