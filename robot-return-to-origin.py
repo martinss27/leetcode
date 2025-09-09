@@ -3,20 +3,10 @@
 class Solution:
     def judgeCircle(self, moves: str) -> bool:
 
-        x = 0
-        y = 0
+        vertical_return = moves.count("U") == moves.count("D")
 
-        for char in moves:
-            if char == "U":
-                y += 1
-            elif char == "D":
-                y -= 1
-            elif char == "R":
-                x += 1
-            elif char == "L":
-                x -= 1
-            
-        return x == 0 and y == 0
+        horizontal_return = moves.count("R") == moves.count("L")
+
+        return vertical_return and horizontal_return
     
-# sligthly faster solution, because it avoids multiple 'if' checks
-# return simplified to a single line
+# using count to count the number of moves in each direction and check if they are equal for opposite directions(U-D and R-L)
