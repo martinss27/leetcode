@@ -2,11 +2,6 @@
 
 class Solution:
     def judgeCircle(self, moves: str) -> bool:
-
-        vertical_return = moves.count("U") == moves.count("D")
-
-        horizontal_return = moves.count("R") == moves.count("L")
-
-        return vertical_return and horizontal_return
+        return moves.count("U") == moves.count("D") and moves.count("R") == moves.count("L")
     
-# using count to count the number of moves in each direction and check if they are equal for opposite directions(U-D and R-L)
+    # simplifing everithing in one line
