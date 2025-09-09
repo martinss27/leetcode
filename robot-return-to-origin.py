@@ -9,14 +9,14 @@ class Solution:
         for char in moves:
             if char == "U":
                 y += 1
-            if char == "D":
+            elif char == "D":
                 y -= 1
-            if char == "R":
+            elif char == "R":
                 x += 1
-            if char == "L":
+            elif char == "L":
                 x -= 1
             
-        if x == 0 and y == 0:
-            return True
-        else:
-            return False
+        return x == 0 and y == 0
+    
+# sligthly faster solution, because it avoids multiple 'if' checks
+# return simplified to a single line
