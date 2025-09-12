@@ -1,28 +1,20 @@
 # https://leetcode.com/problems/find-common-characters/description/
 
+from typing import List
+import collections
+
 class Solution:
     def commonChars(self, words: List[str]) -> List[str]:
+
+        master_counts = collections.Counter(words[0])
+
+        for i in range(1, len(words)):
+
+            master_counts &= collections.Counter(words[i])
         
-        set1 = set(words[0]) 
-        set2 = set(words[1]) 
-        set3 = set(words[2]) 
+        return list(master_counts.elements())
 
-        intersection = set1 & set2 & set3
-        intersection_list = list(intersection)
 
-        result = []
-
-        for candidate_char in intersection_list:
-            count_in_word1 = words[0].count(candidate_char) 
-            count_in_word2 = words[1].count(candidate_char) 
-            count_in_word3 = words[2].count(candidate_char)
-
-            minimum_frequency = min(count_in_word1, count_in_word2, count_in_word3)
-
-            for i in range(minimum_frequency):  
-                result.append(candidate_char)
-                
-        return result
     
 '''
 Example 1:
